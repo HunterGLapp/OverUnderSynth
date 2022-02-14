@@ -20,6 +20,25 @@ void SynthVoice::startNote (int midiNoteNumber, float velocity, juce::Synthesise
     for (int i = 0; i < 2; i++)
     {
         osc1[i].setFreq (midiNoteNumber);
+        sub1[i].setSubFreq(midiNoteNumber, 2);
+        sub2[i].setSubFreq(midiNoteNumber, 3);
+        sub3[i].setSubFreq(midiNoteNumber, 4);
+        sub4[i].setSubFreq(midiNoteNumber, 5);
+        sub5[i].setSubFreq(midiNoteNumber, 6);
+        sub6[i].setSubFreq(midiNoteNumber, 7);
+        sub7[i].setSubFreq(midiNoteNumber, 8);
+        sub8[i].setSubFreq(midiNoteNumber, 9);
+        sub9[i].setSubFreq(midiNoteNumber, 10);
+        ov1[i].setHarmonicFreq(midiNoteNumber, 2);
+        ov2[i].setHarmonicFreq(midiNoteNumber, 3);
+        ov3[i].setHarmonicFreq(midiNoteNumber, 4);
+        ov4[i].setHarmonicFreq(midiNoteNumber, 5);
+        ov5[i].setHarmonicFreq(midiNoteNumber, 6);
+        ov6[i].setHarmonicFreq(midiNoteNumber, 7);
+        ov7[i].setHarmonicFreq(midiNoteNumber, 8);
+        ov8[i].setHarmonicFreq(midiNoteNumber, 9);
+        ov9[i].setHarmonicFreq(midiNoteNumber, 10);
+
         //osc2[i].setFreq (midiNoteNumber);
     }
 
@@ -61,6 +80,25 @@ void SynthVoice::prepareToPlay (double sampleRate, int samplesPerBlock, int outp
     for (int ch = 0; ch < numChannelsToProcess; ch++)
     {
         osc1[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub1[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub2[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub3[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub4[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub5[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub6[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub7[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub8[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        sub9[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov1[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov2[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov3[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov4[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov5[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov6[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov7[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov8[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+        ov9[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
+
         //osc2[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
         filter[ch].prepareToPlay (sampleRate, samplesPerBlock, outputChannels);
         lfo[ch].prepare (spec);
@@ -93,7 +131,26 @@ void SynthVoice::renderNextBlock (juce::AudioBuffer< float > &outputBuffer, int 
 
         for (int s = 0; s < synthBuffer.getNumSamples(); ++s)
         {
-            buffer[s] = osc1[ch].processNextSample (buffer[s]) ; //add harmonics to this buffer
+            buffer[s] = osc1[ch].processNextSample (buffer[s]) +
+                        sub1[ch].processNextSample (buffer[s]) +
+                        sub2[ch].processNextSample (buffer[s]) +
+                        sub3[ch].processNextSample (buffer[s]) +
+                        sub4[ch].processNextSample (buffer[s]) +
+                        sub5[ch].processNextSample (buffer[s]) +
+                        sub6[ch].processNextSample (buffer[s]) +
+                        sub7[ch].processNextSample (buffer[s]) +
+                        sub8[ch].processNextSample (buffer[s]) +
+                        sub9[ch].processNextSample (buffer[s]) +
+                        ov1[ch].processNextSample  (buffer[s]) +
+                        ov2[ch].processNextSample  (buffer[s]) +
+                        ov3[ch].processNextSample  (buffer[s]) +
+                        ov4[ch].processNextSample  (buffer[s]) +
+                        ov5[ch].processNextSample  (buffer[s]) +
+                        ov6[ch].processNextSample  (buffer[s]) +
+                        ov7[ch].processNextSample  (buffer[s]) +
+                        ov8[ch].processNextSample  (buffer[s]) +
+                        ov9[ch].processNextSample  (buffer[s]);
+
         }
     }
 

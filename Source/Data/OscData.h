@@ -20,6 +20,8 @@ public:
     void setGain (const float levelInDecibels);
     void setOscPitch (const int pitch);
     void setFreq (const int midiNoteNumber);
+    void setSubFreq(const int midiNoteNumber, int subharmonic);
+    void setHarmonicFreq(const int midiNoteNumber, int harmonic);
     void setFmOsc (const float freq, const float depth);
     void renderNextBlock (juce::dsp::AudioBlock<float>& audioBlock);
     float processNextSample (float input);

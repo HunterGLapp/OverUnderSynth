@@ -26,10 +26,11 @@ HarmonicComponent::~HarmonicComponent()
 
 void HarmonicComponent::resized()
 {
-    const auto yStart = 15;
+    const auto startX = 18;
+    const auto startY = 80;
     const auto width = 70;
-    const auto height = 88;
+    const auto height = 100;
 
-    gain.setBounds (120, yStart, width, height);
+    gain.setBounds (18, 30, width, height);
 
 }

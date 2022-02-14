@@ -67,13 +67,13 @@ TapSynthAudioProcessorEditor::TapSynthAudioProcessorEditor (TapSynthAudioProcess
     addAndMakeVisible (ov7);
     addAndMakeVisible (ov8);
     addAndMakeVisible (ov9);
-    addAndMakeVisible (filter);
-    addAndMakeVisible (adsr);
-    addAndMakeVisible (lfo1);
-    addAndMakeVisible (filterAdsr);
+    //addAndMakeVisible (filter);
+    //addAndMakeVisible (adsr);
+    //addAndMakeVisible (lfo1);
+    //addAndMakeVisible (filterAdsr);
     addAndMakeVisible (reverb);
     addAndMakeVisible (meter);
-    addAndMakeVisible (logo);
+    //addAndMakeVisible (logo);
 
     osc1.setName ("Oscillator 1");
     //numSubHarms = 9;
@@ -103,8 +103,8 @@ TapSynthAudioProcessorEditor::TapSynthAudioProcessorEditor (TapSynthAudioProcess
     ov8.setName("8");
     ov9.setName("9");
 
-    filter.setName ("Filter");
-    lfo1.setName ("Filter LFO");
+    //filter.setName ("Filter");
+    //lfo1.setName ("Filter LFO");
     filterAdsr.setName ("Filter ADSR");
     adsr.setName ("ADSR");
     meter.setName ("Meter");
@@ -114,14 +114,14 @@ TapSynthAudioProcessorEditor::TapSynthAudioProcessorEditor (TapSynthAudioProcess
 
     osc1.setBoundsColour (oscColour);
 
-    sub1.setBoundsColour(oscColour);
+    //sub1.setBoundsColour(oscColour);
     filterAdsr.setBoundsColour (filterColour);
     filter.setBoundsColour (filterColour);
     lfo1.setBoundsColour (filterColour);
 
 
     startTimerHz (30);
-    setSize (1080, 525);
+    setSize (2000, 525);
 }
 
 TapSynthAudioProcessorEditor::~TapSynthAudioProcessorEditor()
@@ -137,17 +137,34 @@ void TapSynthAudioProcessorEditor::paint (juce::Graphics& g)
 
 void TapSynthAudioProcessorEditor::resized()
 {
-    const auto oscWidth = 420;
-    const auto oscHeight = 180;
-    osc1.setBounds (0, 0, oscWidth, oscHeight);
-    sub1.setBounds (0, osc1.getBottom(), oscWidth, oscHeight);
-    filter.setBounds (osc1.getRight(), 0, 180, 200);
-    lfo1.setBounds (sub1.getRight(), filter.getBottom(), 180, 160);
-    filterAdsr.setBounds (filter.getRight(), 0, 230, 360);
-    adsr.setBounds (filterAdsr.getRight(), 0, 230, 360);
-    reverb.setBounds (0, sub1.getBottom(), oscWidth, 150);
-    meter.setBounds (reverb.getRight(), sub1.getBottom(), filterAdsr.getWidth() + lfo1.getWidth(), 150);
-    logo.setBounds (meter.getRight(), sub1.getBottom() + 30, 250, 100);
+    const auto oscWidth = 1000;
+    const auto oscHeight = 150;
+    osc1.setBounds (0, 0, oscWidth / 2, 150);
+    sub1.setBounds (0, osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub2.setBounds(sub1.getRight(),osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub3.setBounds(sub2.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub4.setBounds(sub3.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub5.setBounds(sub4.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub6.setBounds(sub5.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub7.setBounds(sub6.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub8.setBounds(sub7.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
+    sub9.setBounds(sub8.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
+    ov1.setBounds(0, sub1.getBottom(), oscWidth / 9, oscHeight);
+    ov2.setBounds(ov1.getRight(), sub2.getBottom(), oscWidth / 9, oscHeight);
+    ov3.setBounds(ov2.getRight(), sub3.getBottom(), oscWidth / 9, oscHeight);
+    ov4.setBounds(ov3.getRight(), sub4.getBottom(), oscWidth / 9, oscHeight);
+    ov5.setBounds(ov4.getRight(), sub5.getBottom(), oscWidth / 9, oscHeight);
+    ov6.setBounds(ov5.getRight(), sub6.getBottom(), oscWidth / 9, oscHeight);
+    ov7.setBounds(ov6.getRight(), sub7.getBottom(), oscWidth / 9, oscHeight);
+    ov8.setBounds(ov7.getRight(), sub8.getBottom(), oscWidth / 9, oscHeight);
+    ov9.setBounds(ov8.getRight(), sub9.getBottom(), oscWidth / 9, oscHeight);
+    //filter.setBounds (osc1.getRight(), 0, 180, 200);
+    //lfo1.setBounds (sub9.getRight(), filter.getBottom(), 180, 160);
+    //filterAdsr.setBounds (filter.getRight(), 0, 230, 360);
+    //adsr.setBounds (filterAdsr.getRight(), 0, 230, 360);
+    reverb.setBounds (osc1.getRight(), 0, oscWidth / 2, 150);
+    meter.setBounds (reverb.getRight(), sub2.getBottom(), filterAdsr.getWidth() + lfo1.getWidth(), 150);
+    //logo.setBounds (meter.getRight(), sub2.getBottom() + 30, 250, 100);
 }
 
 void TapSynthAudioProcessorEditor::timerCallback()

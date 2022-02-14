@@ -224,24 +224,24 @@ juce::AudioProcessorValueTreeState::ParameterLayout TapSynthAudioProcessor::crea
     params.push_back (std::make_unique<juce::AudioParameterFloat>("OSC1FMFREQ", "Oscillator 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.1f }, 0.0f, "Hz"));
 
     //SubOscillator Gain
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB1GAIN", "Subharmonic 1 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB2GAIN", "Subharmonic 2 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB3GAIN", "Subharmonic 3 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB4GAIN", "Subharmonic 4 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB5GAIN", "Subharmonic 5 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB6GAIN", "Subharmonic 6 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB7GAIN", "Subharmonic 7 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB8GAIN", "Subharmonic 8 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB9GAIN", "Subharmonic 9 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV1GAIN", "Overtone 1 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV2GAIN", "Overtone 2 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV3GAIN", "Overtone 3 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV4GAIN", "Overtone 4 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV5GAIN", "Overtone 5 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV6GAIN", "Overtone 6 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV7GAIN", "Overtone 7 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV8GAIN", "Overtone 8 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
-    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV9GAIN", "Overtone 9 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB1GAIN", "Subharmonic 1 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB2GAIN", "Subharmonic 2 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB3GAIN", "Subharmonic 3 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB4GAIN", "Subharmonic 4 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB5GAIN", "Subharmonic 5 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB6GAIN", "Subharmonic 6 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB7GAIN", "Subharmonic 7 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB8GAIN", "Subharmonic 8 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("SUB9GAIN", "Subharmonic 9 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, -20.0f }, 0.1f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV1GAIN", "Overtone 1 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV2GAIN", "Overtone 2 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV3GAIN", "Overtone 3 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV4GAIN", "Overtone 4 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV5GAIN", "Overtone 5 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV6GAIN", "Overtone 6 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV7GAIN", "Overtone 7 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV8GAIN", "Overtone 8 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
+    params.push_back (std::make_unique<juce::AudioParameterFloat>("OV9GAIN", "Overtone 9 Gain", juce::NormalisableRange<float> { -40.0f, 0.2f, 0.1f }, -20.0f, "dB"));
 
 
 
@@ -334,6 +334,24 @@ void TapSynthAudioProcessor::setVoiceParams()
             auto& filterRelease = *apvts.getRawParameterValue ("FILTERRELEASE");
 
             auto& osc1 = voice->getOscillator1();
+            auto& sub1 = voice->getSub1();
+            auto& sub2 = voice->getSub2();
+            auto& sub3 = voice->getSub3();
+            auto& sub4 = voice->getSub4();
+            auto& sub5 = voice->getSub5();
+            auto& sub6 = voice->getSub6();
+            auto& sub7 = voice->getSub7();
+            auto& sub8 = voice->getSub8();
+            auto& sub9 = voice->getSub9();
+            auto& ov1  = voice->getOv1();
+            auto& ov2  = voice->getOv2();
+            auto& ov3  = voice->getOv3();
+            auto& ov4  = voice->getOv4();
+            auto& ov5  = voice->getOv5();
+            auto& ov6  = voice->getOv6();
+            auto& ov7  = voice->getOv7();
+            auto& ov8  = voice->getOv8();
+            auto& ov9  = voice->getOv9();
 
 
             auto& adsr = voice->getAdsr();
@@ -342,6 +360,27 @@ void TapSynthAudioProcessor::setVoiceParams()
             for (int i = 0; i < getTotalNumOutputChannels(); i++)
             {
                 osc1[i].setParams (osc1Choice, osc1Gain, osc1Pitch, osc1FmFreq, osc1FmDepth);
+                sub1[i].setParams (osc1Choice, sub1Gain, 0, 0, 0);
+                sub2[i].setParams (osc1Choice, sub2Gain, 0, 0, 0);
+                sub3[i].setParams (osc1Choice, sub3Gain, 0, 0, 0);
+                sub4[i].setParams (osc1Choice, sub4Gain, 0, 0, 0);
+                sub5[i].setParams (osc1Choice, sub5Gain, 0, 0, 0);
+                sub6[i].setParams (osc1Choice, sub6Gain, 0, 0, 0);
+                sub7[i].setParams (osc1Choice, sub7Gain, 0, 0, 0);
+                sub8[i].setParams (osc1Choice, sub8Gain, 0, 0, 0);
+                sub9[i].setParams (osc1Choice, sub9Gain, 0, 0, 0);
+                ov1[i].setParams  (osc1Choice, ov1Gain, 0, 0, 0 );
+                ov2[i].setParams  (osc1Choice, ov2Gain, 0, 0, 0 );
+                ov3[i].setParams  (osc1Choice, ov3Gain, 0, 0, 0 );
+                ov4[i].setParams  (osc1Choice, ov4Gain, 0, 0, 0 );
+                ov5[i].setParams  (osc1Choice, ov5Gain, 0, 0, 0 );
+                ov6[i].setParams  (osc1Choice, ov6Gain, 0, 0, 0 );
+                ov7[i].setParams  (osc1Choice, ov7Gain, 0, 0, 0 );
+                ov8[i].setParams  (osc1Choice, ov8Gain, 0, 0, 0 );
+                ov9[i].setParams  (osc1Choice, ov9Gain, 0, 0, 0 );
+
+
+
 
             }
 

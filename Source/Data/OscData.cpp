@@ -13,15 +13,15 @@
 void OscData::prepareToPlay (double sampleRate, int samplesPerBlock, int outputChannels)
 {
     resetAll();
-    
+
     juce::dsp::ProcessSpec spec;
     spec.maximumBlockSize = samplesPerBlock;
     spec.sampleRate = sampleRate;
     spec.numChannels = outputChannels;
-    
+
     prepare (spec);
     fmOsc.prepare (spec);
-    gain.prepare (spec);    
+    gain.prepare (spec);
 }
 
 void OscData::setType (const int oscSelection)
@@ -32,17 +32,17 @@ void OscData::setType (const int oscSelection)
         case 0:
             initialise ([](float x) { return std::sin (x); });
             break;
-            
+
         // Saw
         case 1:
             initialise ([] (float x) { return x / juce::MathConstants<float>::pi; });
             break;
-          
+
         // Square
         case 2:
             initialise ([] (float x) { return x < 0.0f ? -1.0f : 1.0f; });
             break;
-            
+
         default:
             // You shouldn't be here!
             jassertfalse;
@@ -58,13 +58,26 @@ void OscData::setGain (const float levelInDecibels)
 void OscData::setOscPitch (const int pitch)
 {
     lastPitch = pitch;
-    setFrequency (juce::MidiMessage::getMidiNoteInHertz ((lastMidiNote + lastPitch) + fmModulator));
+    //setFrequency (juce::MidiMessage::getMidiNoteInHertz ((lastMidiNote + lastPitch) + fmModulator));
 
 }
 
 void OscData::setFreq (const int midiNoteNumber)
 {
-    setFrequency (juce::MidiMessage::getMidiNoteInHertz ((midiNoteNumber + lastPitch) + fmModulator));
+    //setFrequency (juce::MidiMessage::getMidiNoteInHertz ((midiNoteNumber + lastPitch) + fmModulator));
+    setFrequency(juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber));
+    lastMidiNote = midiNoteNumber;
+}
+
+void OscData::setSubFreq (const int midiNoteNumber, int subharmonic)
+{
+    setFrequency (juce:: MidiMessage::getMidiNoteInHertz (midiNoteNumber) / subharmonic);
+    lastMidiNote = midiNoteNumber;
+}
+
+void OscData::setHarmonicFreq (const int midiNoteNumber, int harmonic)
+{
+    setFrequency (juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber) * harmonic);
     lastMidiNote = midiNoteNumber;
 }
 
@@ -72,7 +85,7 @@ void OscData::setFmOsc (const float freq, const float depth)
 {
     fmDepth = depth;
     fmOsc.setFrequency (freq);
-    setFrequency (juce::MidiMessage::getMidiNoteInHertz ((lastMidiNote + lastPitch) + fmModulator));
+    //setFrequency (juce::MidiMessage::getMidiNoteInHertz ((lastMidiNote + lastPitch) + fmModulator));
 }
 
 void OscData::renderNextBlock (juce::dsp::AudioBlock<float>& audioBlock)
@@ -84,7 +97,7 @@ void OscData::renderNextBlock (juce::dsp::AudioBlock<float>& audioBlock)
 
 float OscData::processNextSample (float input)
 {
-    fmModulator = fmOsc.processSample (input) * fmDepth;
+    //fmModulator = fmOsc.processSample (input) * fmDepth;
     return gain.processSample (processSample (input));
 }
 

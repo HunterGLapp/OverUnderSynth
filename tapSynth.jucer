@@ -18,9 +18,6 @@
       <FILE id="UardPm" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
       <GROUP id="{F763CC91-BD2D-7AF9-546F-8878966BB954}" name="Data">
         <FILE id="LoPzV0" name="AdsrData.cpp" compile="1" resource="0" file="Source/Data/AdsrData.cpp"/>
-        <FILE id="TIGV6n" name="HarmonicData.h" compile="0" resource="0" file="Source/Data/HarmonicData.h"/>
-        <FILE id="tN8Ayw" name="HarmonicData.cpp" compile="1" resource="0"
-              file="Source/Data/HarmonicData.cpp"/>
         <FILE id="jhGYSk" name="AdsrData.h" compile="0" resource="0" file="Source/Data/AdsrData.h"/>
         <FILE id="aAQb1V" name="FilterData.cpp" compile="1" resource="0" file="Source/Data/FilterData.cpp"/>
         <FILE id="Htzwpx" name="FilterData.h" compile="0" resource="0" file="Source/Data/FilterData.h"/>
