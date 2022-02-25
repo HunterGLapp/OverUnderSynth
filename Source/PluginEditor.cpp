@@ -121,7 +121,7 @@ TapSynthAudioProcessorEditor::TapSynthAudioProcessorEditor (TapSynthAudioProcess
 
 
     startTimerHz (30);
-    setSize (2000, 525);
+    setSize (1200, 525);
 }
 
 TapSynthAudioProcessorEditor::~TapSynthAudioProcessorEditor()
