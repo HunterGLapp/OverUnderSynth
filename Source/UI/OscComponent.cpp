@@ -26,9 +26,9 @@ OscComponent::OscComponent (juce::AudioProcessorValueTreeState& apvts, juce::Str
     oscSelAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(apvts, oscId, oscSelector);
     
     addAndMakeVisible (gain);
-    addAndMakeVisible (pitch);
-    addAndMakeVisible (fmFreq);
-    addAndMakeVisible (fmDepth);
+    //addAndMakeVisible (pitch);
+    //addAndMakeVisible (fmFreq);
+    //addAndMakeVisible (fmDepth);
 }
 
 OscComponent::~OscComponent()
@@ -44,7 +44,7 @@ void OscComponent::resized()
     
     oscSelector.setBounds (18, 40, 100, 25);
     gain.setBounds (120, yStart, width, height);
-    pitch.setBounds (190, yStart, width, height);
-    fmFreq.setBounds (260, yStart, width, height);
-    fmDepth.setBounds (330, yStart, width, height);
+    //pitch.setBounds (190, yStart, width, height);
+    //fmFreq.setBounds (260, yStart, width, height);
+    //fmDepth.setBounds (330, yStart, width, height);
 }

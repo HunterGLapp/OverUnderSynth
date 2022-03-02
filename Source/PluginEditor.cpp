@@ -28,7 +28,7 @@ TapSynthAudioProcessorEditor::TapSynthAudioProcessorEditor (TapSynthAudioProcess
 , ov2 (audioProcessor.apvts, "OV2", "OV2GAIN")
 , ov3 (audioProcessor.apvts, "OV3", "OV3GAIN")
 , ov4 (audioProcessor.apvts, "OV4", "OV4GAIN")
-, ov5 (audioProcessor.apvts, "OV5", "OV6GAIN")
+, ov5 (audioProcessor.apvts, "OV5", "OV5GAIN")
 , ov6 (audioProcessor.apvts, "OV6", "OV6GAIN")
 , ov7 (audioProcessor.apvts, "OV7", "OV7GAIN")
 , ov8 (audioProcessor.apvts, "OV8", "OV8GAIN")
@@ -139,7 +139,7 @@ void TapSynthAudioProcessorEditor::resized()
 {
     const auto oscWidth = 1000;
     const auto oscHeight = 150;
-    osc1.setBounds (0, 0, oscWidth / 2, 150);
+    osc1.setBounds (0, 0, oscWidth / 5, 150);
     sub1.setBounds (0, osc1.getBottom(), oscWidth / 9, oscHeight);
     sub2.setBounds(sub1.getRight(),osc1.getBottom(), oscWidth / 9, oscHeight);
     sub3.setBounds(sub2.getRight(), osc1.getBottom(), oscWidth / 9, oscHeight);
